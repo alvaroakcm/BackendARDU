@@ -4,7 +4,7 @@ message: Configuracion de local en el servidor levantado!
 
 spring:
   application:
-    name: restaurante-service
+    name: platos-service
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
