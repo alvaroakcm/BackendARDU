@@ -28,4 +28,4 @@ eureka:
 
 spring:
   application:
-    name: restaurante-service  # Nombre con el que se registrará en Eureka
+    name: Restaurante-service  # Nombre con el que se registrará en Eureka
