@@ -1,1 +1,32 @@
-usua
+server:
+  port: ${PORT:8872}
+message: Configuracion de usuarios en el servidor levantado!
+
+spring:
+  application:
+    name: usuario-service  # Nombre con el que se registrará en Eureka
+  
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/backend?serverTimezone=UTC
+    username: root
+    password: 12345678
+  
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQLDialect
+  
+  cloud:
+    config:
+      uri: http://localhost:8870
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/  # URL del Eureka Server
+    fetch-registry: true  # Habilita la recuperación de registros (por defecto es true)
+    register-with-eureka: true  # Habilita el registro del microservicio en Eureka
+  instance:
+    prefer-ip-address: true  # Usa la dirección IP en lugar del nombre de host
+    instance-id: ${spring.application.name}:${server.port}  # ID único de instancia en Eureka
